@@ -97,7 +97,8 @@ def create_vertical_stack(frames, inventory_width, inventory_height):
 def main():
     inventory_path = "inventory.png"
     gif_path = "input.gif"
-    assets_source = "assets"
+    assets_source = "common/assets"
+    mcmeta_source = "common/pack.mcmeta"
     done_folder = "done"
 
     print("Starting process...")
@@ -131,6 +132,9 @@ def main():
 
     print(f"Copying '{assets_source}' to '{done_folder}/assets'...")
     shutil.copytree(assets_source, os.path.join(done_folder, "assets"))
+
+    print(f"Copying '{mcmeta_source}' to '{done_folder}'...")
+    shutil.copy(mcmeta_source, os.path.join(done_folder, "pack.mcmeta"))
 
     print("6. Saving output files...")
 
